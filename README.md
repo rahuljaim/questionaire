@@ -13,4 +13,4 @@ which is useful to add or update the questions as per need.
 
 ## In JavaScript
 
-Now the actual code is used to fetch the questions from `src/questions.js` file and displayed to the main page by appending its element to the HTML
+    Now the actual code is used to fetch the questions from `src/questions.js` file and displayed to the main page by appending its element to the HTML
