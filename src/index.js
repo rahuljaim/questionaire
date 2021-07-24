@@ -22,7 +22,7 @@
   function createQuestion(questionPrompt, options, correctOptionIndex) {
     const questionContainer = document.createElement("div");
   
-    const prompt = document.createElement("h1");
+    const prompt = document.createElement("h2");
     prompt.appendChild(document.createTextNode(questionPrompt));
     questionContainer.appendChild(prompt);
   
@@ -49,15 +49,56 @@
     return questionContainer;
   }
   
+  function $(id){
+    return document.getElementById(id);
+  }
+
   // selection
   const appDiv = document.getElementById("app");
-  
-  for (const questionObj of questions) {
-    const questionElement = createQuestion(
-      questionObj.question,
-      questionObj.answers,
-      questionObj.correctIndex
+  let length = questions.length;
+  let prev = $("prevbtn");
+  let next = $("nextbtn");
+  let qid=0;
+  window.addEventListener("load",()=>{
+    const questionElement1 = createQuestion(
+      questions[qid].question,
+      questions[qid].answers,
+      questions[qid].correctIndex
     );
-    appDiv.appendChild(questionElement);
-  }
+    appDiv.appendChild(questionElement1);
+    
+  });
+  next.addEventListener("click",function(){
+    
+    qid = qid+1;
+    const questionElement2 = createQuestion(
+      questions[qid].question,
+      questions[qid].answers,
+      questions[qid].correctIndex
+    );
+    appDiv.append(questionElement2);
+
+  });
+  prev.addEventListener("click",function(){
+    if(qid ==0){
+      prev.setAttribute("class","disabled");
+      return;
+    } else{
+      qid = qid-1;
+      const questionElement2 = createQuestion(
+        questions[qid].question,
+        questions[qid].answers,
+        questions[qid].correctIndex
+      );
+    }
+    appDiv.removeChild(questionElement2);
+  });
+  // for (const questionObj of questions) {
+  //   const questionElement = createQuestion(
+  //     questionObj.question,
+  //     questionObj.answers,
+  //     questionObj.correctIndex
+  //   );
+  //   appDiv.appendChild(questionElement);
+  // }
   
