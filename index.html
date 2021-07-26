@@ -14,14 +14,23 @@
 
 <body>
 
-  <div class="container">
-    <div class="row ">
-      <h1 class="">Quiz Contest Application</h1>
+  <div class="container-sm">
+    <div class="row">
+      <h1 class="text-center text-success">Quiz Contest Application</h1>
       <div class="col-md-12 mt-2">
-        <div id="app"></div>
-        <button type="button" class="btn btn-secondary Ṣbtn-sm" id="prevbtn">Previous</button>
-        <button type="button" class="btn btn-primary btn-sm" id ="nextbtn">Next</button>
+        <div id="app" class="container"></div>
       </div>
+      <div class="col-md-6 p-3 text-center">
+        <button type="button" class="btn btn-secondary btn-lg disabled" id="prevbtn">Previous</button>
+      </div>
+      <div class="col-md-6 p-3 text-center">
+        <button type="button" class="btn btn-primary btn-lg" id="nextbtn">Next</button>
+      </div>
+    </div>
+    
+    <div class="progress m-2">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 0%" aria-valuenow="0"
+        aria-valuemin="0" aria-valuemax="100" id="progress-bar-new"></div>
     </div>
 
 
