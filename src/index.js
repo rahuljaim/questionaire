@@ -32,7 +32,6 @@
     optionContainer.setAttribute("class","list-group");
     const correctOption = options[correctOptionIndex];
     console.log(correctOption);
-    let attempt=0;
     const alert = document.createElement("div");
     let score =0;
     for (const option of options) {
@@ -41,19 +40,19 @@
       const alertwrong="<strong>Wrong!</strong> Answer ";
       const alertsuccess="<strong>Correct!</strong> Answer ";
       optionDiv.addEventListener("click", function () {
-        attempt++;
+        
         if (correctOption === option) {
           alert.setAttribute("class","alert alert-success alert-dismissible fade show mt-2");
           alert.innerHTML=alertsuccess;
           correctansdiv.appendChild(alert);
           correctansdiv.style.order=1;
-          alert(option + " is correct.");
+          // alert(option + " is correct.");
         } else {
           alert.setAttribute("class","alert alert-danger alert-dismissible fade show mt-2");
           alert.innerHTML=alertwrong;
           correctansdiv.appendChild(alert);
           correctansdiv.style.order=1;
-          alert(option + " is NOT correct.");
+          // alert(option + " is NOT correct.");
         }
       });
       optionDiv.textContent = option;
@@ -74,14 +73,35 @@
 
   // selection
   const appDiv = document.getElementById("app");
-  appDiv.setAttribute("style", "border: 1px solid red; border-radius: 15px;  padding: 39px; margin-bottom: 15px;");
+  appDiv.setAttribute("style", "border: 1px solid green; border-radius: 15px;  padding: 39px; margin-bottom: 15px; position:relative;");
   let length = questions.length;
   let prev = $("prevbtn");
   let next = $("nextbtn");
   var rq =$("questionscontainer");
   let qid=0;
+  let attempt=$("attempt");
+  let flexgrid=$("flex-grid");
+  
+  
+  
+  for(let i=0; i<length; i++){
+    
+    var gridnumber = document.createElement("div");
+    gridnumber.classList="serial";
+    flexgrid.appendChild(gridnumber);
+    gridnumber.textContent=i+1;
+    
+    
+  }
+  
+
   
   window.addEventListener("load",()=>{
+    attempt.textContent =1 +"/"+length;
+    if(gridnumber.textContent==1){
+      gridnumber.classList.add("selected");
+
+    }
     const questionElement1 = createQuestion(
       questions[qid].question,
       questions[qid].answers,
@@ -92,6 +112,7 @@
   });
   next.addEventListener("click",function(){
       qid = qid+1;
+      attempt.textContent =qid+1 +"/"+length;;
       if(qid === length-1)
         next.classList.add("disabled")
       if(prev.classList.contains("disabled"))
@@ -111,6 +132,7 @@
   prev.addEventListener("click",function(){
     
     qid = qid-1;
+    attempt.textContent =qid+1 +"/"+length;;
     if(qid === 0)      
       prev.classList.add("disabled");
       document.getElementById("questionscontainer").remove();

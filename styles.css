@@ -1,0 +1,34 @@
+body {
+    font-family: sans-serif;
+  }
+.hide{
+  display: none;
+  
+}
+#count{
+  position: relative;
+  top:0px;
+  right: 0px;
+  border: 1px solid tomato;
+}
+#attempt{
+  position: absolute;
+    right: 25px;
+    top: 10px;
+}
+#flex-grid{
+    display: flex;
+    justify-content: center;
+    
+}
+.serial{
+    display: block;
+    border: 1px solid tomato;
+    padding: 15px;
+    
+}
+.selected{
+    background-color: tomato;
+    font-weight: bold;
+    color:white;
+}

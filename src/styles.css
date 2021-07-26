@@ -5,3 +5,14 @@ body {
   display: none;
   
 }
+#count{
+  position: relative;
+  top:0px;
+  right: 0px;
+  border: 1px solid tomato;
+}
+#attempt{
+  position: absolute;
+    right: 25px;
+    top: 10px;
+}
